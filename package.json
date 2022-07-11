@@ -8,5 +8,9 @@
   },
   "devDependencies": {
     "nuxt": "3.0.0-rc.4"
+  },
+  "dependencies": {
+    "@fawmi/vue-google-maps": "^0.9.72",
+    "vuejs-google-maps": "^0.2.0"
   }
 }
