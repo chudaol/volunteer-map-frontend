@@ -4,6 +4,6 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
     build: { transpile: ["@fawmi/vue-google-maps"] },
     runtimeConfig: {
-        public: { GOOGLE_MAPS_API_KEY: 'AIzaSyDNnmzErBZfmFpYNBdFznfF7CVa4kvFBp0' }
+        public: { GOOGLE_MAPS_API_KEY: 'AIzaSyBL1pP7Y8Xq8j9EhaHpWwqkI_bpYFE8NDs' }
     }
 })
