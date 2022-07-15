@@ -11,7 +11,7 @@
             rotateControl: false,
             fullscreenControl: true,
           }"
-        style="width: 500px; height: 300px; margin: auto"
+        style="width: 100vw; height: 100vh; margin: auto"
     >
       <GMapMarker
           :key="index"
@@ -39,14 +39,14 @@ export default {
   data() {
     return {
       openedMarkerID: null,
-      center: { lat: 48.8773406, lng: 2.327774 },
+      center: { lat: 50.4501, lng: 30.5234 },
       markers: [
         {
-          description: "Google France",
+          description: "Google Kyiv",
           id: "1",
           position: {
-            lat: 48.8773406,
-            lng: 2.327774,
+            lat: 50.4501,
+            lng: 30.5234,
           },
         },
       ],
