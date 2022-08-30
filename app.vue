@@ -80,7 +80,7 @@ function viewDetails(city: string) {
 </script>
 
 <style>
-@import "leaflet/dist/leaflet.css";
+@import "~/node_modules/leaflet/dist/leaflet.css";
 
 * {
   margin: 0;
