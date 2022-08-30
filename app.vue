@@ -19,6 +19,7 @@
 </template>
 
 <script setup lang="ts">
+import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LCircle, LTooltip } from "@vue-leaflet/vue-leaflet";
 import { reactive } from "vue";
 
@@ -80,8 +81,6 @@ function viewDetails(city: string) {
 </script>
 
 <style>
-@import "~/node_modules/leaflet/dist/leaflet.css";
-
 * {
   margin: 0;
   padding: 0;
