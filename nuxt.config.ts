@@ -4,11 +4,13 @@ import { defineNuxtConfig } from 'nuxt';
 export default defineNuxtConfig({
     ssr: false,
     hooks: {
-        'vite:extendConfig'(config, {isClient}) {
+        'vite:extendConfig'(config, { isClient }) {
             if (process.env.NODE_ENV !== 'development' && isClient) {
-                config.build.rollupOptions.output.chunkFileNames = '[name]-[hash].js'
-                config.build.rollupOptions.output.chunkFileNames = '[name]-[hash].js'
+                // rc6
+                config.build.rollupOptions.output.chunkFileNames = '[hash].js'
+                // rc7
+                config.build.rollupOptions.output.chunkFileNames = '_nuxt/[hash].js'
             }
         }
-    }
+    },
 });
