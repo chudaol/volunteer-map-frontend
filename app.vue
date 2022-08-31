@@ -28,17 +28,17 @@ interface City {
   inquiries?: number;
 }
 
-// useHead({
-//   title: "Volunteer Map",
-//   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
-//   charset: "utf-8",
-//   link: [
-//     {
-//       rel: "stylesheet",
-//       href: "https://unpkg.com/leaflet@latest/dist/leaflet.css",
-//     },
-//   ],
-// });
+useHead({
+  title: "Volunteer Map",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+  charset: "utf-8",
+  link: [
+    {
+      rel: "stylesheet",
+      href: "https://unpkg.com/leaflet@latest/dist/leaflet.css",
+    },
+  ],
+});
 
 const mapOptions = reactive({
   center: [50.4501, 30.5234],

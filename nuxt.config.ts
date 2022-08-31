@@ -6,5 +6,4 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		public: { GOOGLE_MAPS_API_KEY: 'AIzaSyBL1pP7Y8Xq8j9EhaHpWwqkI_bpYFE8NDs' },
 	},
-	css: ['~/node_modules/leaflet/dist/leaflet.css'],
 });
