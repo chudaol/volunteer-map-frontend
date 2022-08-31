@@ -19,9 +19,26 @@
 </template>
 
 <script setup lang="ts">
-import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LCircle, LTooltip } from "@vue-leaflet/vue-leaflet";
 import { reactive } from "vue";
+
+interface City {
+  name: string;
+  lang: [number, number];
+  inquiries?: number;
+}
+
+// useHead({
+//   title: "Volunteer Map",
+//   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+//   charset: "utf-8",
+//   link: [
+//     {
+//       rel: "stylesheet",
+//       href: "https://unpkg.com/leaflet@latest/dist/leaflet.css",
+//     },
+//   ],
+// });
 
 const mapOptions = reactive({
   center: [50.4501, 30.5234],
@@ -37,7 +54,7 @@ const markerOptions = reactive({
   color: "transparent",
 });
 
-const cities = reactive([
+const cities = reactive<City[]>([
   {
     name: "Kyiv",
     lang: [50.4501, 30.5234],
@@ -74,13 +91,14 @@ function getMarkerColor(amount: number = 0): string {
   return amount > 1 ? "red" : "yellow";
 }
 
-function viewDetails(city: string) {
+function viewDetails(city: string): void {
   console.log("emit sidebar");
   console.log(`show ${city} details`);
 }
 </script>
 
 <style>
+@import "leaflet/dist/leaflet.css";
 * {
   margin: 0;
   padding: 0;
