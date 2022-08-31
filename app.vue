@@ -1,27 +1,26 @@
 <template>
   <div class="content-wrapper">
-    <client-only>
-      <l-map v-bind="mapOptions">
-        <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <l-circle
-          v-for="(city, index) in cities"
-          :key="index"
-          v-bind="markerOptions"
-          :lat-lng="city.lang"
-          :color="getMarkerColor(city.inquiries)"
-          @click="viewDetails(city.name)"
-        >
-          <l-tooltip :options="{ permanent: true, direction: 'center' }">
-            {{ city.inquiries ?? "?" }}
-          </l-tooltip>
-        </l-circle>
-      </l-map>
-    </client-only>
+    <l-map v-bind="mapOptions">
+      <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      <l-circle
+        v-for="(city, index) in cities"
+        :key="index"
+        v-bind="markerOptions"
+        :lat-lng="city.lang"
+        :color="getMarkerColor(city.inquiries)"
+        @click="viewDetails(city.name)"
+      >
+        <l-tooltip :options="{ permanent: true, direction: 'center' }">
+          {{ city.inquiries ?? "?" }}
+        </l-tooltip>
+      </l-circle>
+    </l-map>
   </div>
 </template>
 
 <script setup lang="ts">
 import { reactive } from "vue";
+import "leaflet/dist/leaflet.css";
 
 interface City {
   name: string;
@@ -33,12 +32,6 @@ useHead({
   title: "Volunteer Map",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   charset: "utf-8",
-  link: [
-    {
-      rel: "stylesheet",
-      href: "https://unpkg.com/leaflet@latest/dist/leaflet.css",
-    },
-  ],
 });
 
 const mapOptions = reactive({
