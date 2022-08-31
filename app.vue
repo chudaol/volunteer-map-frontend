@@ -1,25 +1,26 @@
 <template>
   <div class="content-wrapper">
-    <l-map v-bind="mapOptions">
-      <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <l-circle
-        v-for="(city, index) in cities"
-        :key="index"
-        v-bind="markerOptions"
-        :lat-lng="city.lang"
-        :color="getMarkerColor(city.inquiries)"
-        @click="viewDetails(city.name)"
-      >
-        <l-tooltip :options="{ permanent: true, direction: 'center' }">
-          {{ city.inquiries ?? "?" }}
-        </l-tooltip>
-      </l-circle>
-    </l-map>
+    <client-only>
+      <l-map v-bind="mapOptions">
+        <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <l-circle
+          v-for="(city, index) in cities"
+          :key="index"
+          v-bind="markerOptions"
+          :lat-lng="city.lang"
+          :color="getMarkerColor(city.inquiries)"
+          @click="viewDetails(city.name)"
+        >
+          <l-tooltip :options="{ permanent: true, direction: 'center' }">
+            {{ city.inquiries ?? "?" }}
+          </l-tooltip>
+        </l-circle>
+      </l-map>
+    </client-only>
   </div>
 </template>
 
 <script setup lang="ts">
-import { LMap, LTileLayer, LCircle, LTooltip } from "@vue-leaflet/vue-leaflet";
 import { reactive } from "vue";
 
 interface City {
