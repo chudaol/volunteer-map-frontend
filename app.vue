@@ -7,7 +7,7 @@
         :key="index"
         v-bind="markerOptions"
         :lat-lng="city.lang"
-        :fillColor="getMarkerColor(city.inquiries)"
+        :color="getMarkerColor(city.inquiries)"
         @click="viewDetails(city.name)"
       >
         <l-tooltip :options="{ permanent: true, direction: 'center' }">
@@ -48,10 +48,9 @@ const mapOptions = reactive({
 });
 
 const markerOptions = reactive({
-  radius: 3500,
-  fill: true,
-  fillOpacity: 0.6,
-  color: "transparent",
+  stroke: true,
+  opacity: 0.6,
+  weight: 100,
 });
 
 const cities = reactive<City[]>([
