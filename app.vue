@@ -19,8 +19,8 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
 import "leaflet/dist/leaflet.css";
+import { reactive } from "vue";
 
 interface City {
   name: string;
@@ -32,12 +32,6 @@ useHead({
   title: "Volunteer Map",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   charset: "utf-8",
-  link: [
-    {
-      rel: "stylesheet",
-      href: "https://unpkg.com/leaflet@latest/dist/leaflet.css",
-    },
-  ],
 });
 
 const mapOptions = reactive({
