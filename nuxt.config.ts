@@ -7,6 +7,7 @@ export default defineNuxtConfig({
             if (process.env.NODE_ENV !== 'development' && isClient) {
                 config.build.rollupOptions.output.chunkFileNames = '[name]-[hash].js'
                 config.build.rollupOptions.output.entryFileNames = '[name]-[hash].js'
+                config.build.rollupOptions.output.assetFileNames = '[name]-[hash].js'
             }
         }
     },
