@@ -46,7 +46,7 @@ onMounted(() => {
     el.style.borderRadius = "50%";
     el.style.opacity = "0.6";
     el.style.backgroundSize = "100%";
-    el.innerText = marker.inquiries.toString();
+    el.innerText = String(marker.inquiries ?? "?");
 
     el.addEventListener("click", () => {
       viewDetails(marker.name);
