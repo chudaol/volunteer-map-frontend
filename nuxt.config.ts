@@ -9,6 +9,7 @@ export default defineNuxtConfig({
 	head: {
 		link: [{ rel: 'stylesheet', href: 'https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' }],
 	},
+	css: ['~/assets/css/main.css'],
 	hooks: {
 		'vite:extendConfig'(config, { isClient }) {
 			if (process.env.NODE_ENV !== 'development' && isClient) {

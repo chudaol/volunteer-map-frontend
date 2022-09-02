@@ -5,7 +5,6 @@
 <script setup lang="ts">
 import { reactive, onMounted } from "vue";
 import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
 
 interface City {
   name: string;
@@ -101,27 +100,8 @@ function viewDetails(city: string): void {
 </script>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: content-box;
-}
-
-html,
-body,
-#__nuxt {
-  height: 100%;
-}
-
 .content-wrapper {
   width: 100vw;
   height: 100vh;
-}
-
-.leaflet-tooltip {
-  font-size: 2rem;
-  border: none;
-  box-shadow: none;
-  background: transparent;
 }
 </style>
