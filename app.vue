@@ -5,6 +5,7 @@
 <script setup lang="ts">
 import { reactive, onMounted } from "vue";
 import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 interface City {
   name: string;
