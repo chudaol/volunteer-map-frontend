@@ -107,6 +107,12 @@ function viewDetails(city: string): void {
   box-sizing: content-box;
 }
 
+html,
+body,
+#__nuxt {
+  height: 100%;
+}
+
 .content-wrapper {
   width: 100vw;
   height: 100vh;
