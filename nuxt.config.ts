@@ -13,4 +13,16 @@ export default defineNuxtConfig({
 	},
 	css: ['leaflet/dist/leaflet.css'],
 	module: ['nuxt-leaflet'],
+	head: {
+		title: 'Volunteer Map',
+		viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+		charset: 'utf-8',
+		link: [
+			{
+				rel: 'stylesheet',
+				type: 'text/css',
+				href: 'https://unpkg.com/leaflet@latest/dist/leaflet.css',
+			},
+		],
+	},
 });
