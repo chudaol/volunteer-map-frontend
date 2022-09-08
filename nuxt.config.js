@@ -6,8 +6,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - volunteer-map2',
-    title: 'volunteer-map2',
+    titleTemplate: '%s - volunteer-map',
+    title: 'volunteer-map',
     htmlAttrs: {
       lang: 'en'
     },
