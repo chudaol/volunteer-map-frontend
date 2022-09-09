@@ -68,6 +68,74 @@ export default {
           lang: [50.35, 30.95],
           inquiries: 0,
         },
+        {
+          name: "Mykolaiv",
+          lang: [46.9667, 32.0],
+          inquiries: 3,
+        },
+        {
+          name: "Zaporizhzhia",
+          lang: [47.8378, 35.1383],
+          inquiries: 2,
+        },
+        {
+          name: "Pavlohrad",
+          lang: [48.52, 35.87],
+        },
+        {
+          name: "Kramatorsk",
+          lang: [48.7208, 37.5556],
+          inquiries: 1,
+        },
+        {
+          name: "Sloviansk",
+          lang: [48.87, 37.625],
+          inquiries: 10,
+        },
+        {
+          name: "Horlivka",
+          lang: [48.3336, 38.0925],
+          inquiries: 4,
+        },
+        {
+          name: "Svyatohirs’k",
+          lang: [49.0333, 37.5833],
+        },
+        {
+          name: "Barvynkove",
+          lang: [48.9067, 37.0131],
+          inquiries: 1,
+        },
+        {
+          name: "Savyntsi",
+          lang: [49.4105, 37.0617],
+        },
+        {
+          name: "Barvynkove",
+          lang: [48.9067, 37.0131],
+          inquiries: 1,
+        },
+        {
+          name: "Balakliia",
+          lang: [49.4564, 36.8389],
+          inquiries: 10,
+        },
+        {
+          name: "Krasnokutsk",
+          lang: [50.0567, 35.1492],
+        },
+        {
+          name: "Krasnopavlivka",
+          lang: [49.0825, 36.1925],
+        },
+        {
+          name: "Staryi Merchyk",
+          lang: [49.5845, 35.4536],
+        },
+        {
+          name: "Kharkiv",
+          lang: [50.0, 36.2292],
+        },
       ],
     };
   },
