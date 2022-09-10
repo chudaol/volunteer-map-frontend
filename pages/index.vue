@@ -2,18 +2,34 @@
   <div class="content-wrapper">
     <l-map v-bind="mapOptions">
       <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <l-circle
+      <div
         v-for="(city, index) in cities"
         :key="index"
-        v-bind="markerOptions"
-        :lat-lng="city.lang"
-        :color="getMarkerColor(city.inquiries)"
-        @click="viewDetails(city.name)"
       >
-        <l-tooltip :options="{ permanent: true, direction: 'center' }">
-          {{ city.inquiries ?? "?" }}
-        </l-tooltip>
-      </l-circle>
+        <l-circle
+          v-bind="markerOptions"
+          :lat-lng="city.lang"
+          :color="getMarkerColor(city.inquiries)"
+          @click="viewDetails(city.name)"
+        >
+          <l-popup>
+            <v-card
+              flat
+            >
+              <v-card-title>{{ city.name }}</v-card-title>
+              <v-card-text>
+                {{ city.description || 'Lorem Ipsum' }}
+              </v-card-text>
+              <v-card-actions>
+                <v-btn>Щось зробити</v-btn>
+              </v-card-actions>
+            </v-card>
+          </l-popup>
+          <l-tooltip :options="{ permanent: true, direction: 'center' }">
+            {{ city.inquiries ?? "?" }}
+          </l-tooltip>
+        </l-circle>
+      </div>
     </l-map>
   </div>
 </template>
@@ -72,6 +88,7 @@
         return amount > 1 ? "red" : "yellow"
       },
       viewDetails (city) {
+        this.dialog = true
         console.log("emit sidebar");
         console.log(`show ${city} details`);
       }
@@ -88,7 +105,7 @@
 
 .content-wrapper {
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
 }
 
 .leaflet-tooltip {
