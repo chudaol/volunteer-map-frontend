@@ -3,18 +3,29 @@
     <l-map v-bind="mapOptions" @update:zoom="zoomUpdated">
       <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <v-marker-cluster :options="markerClusterOptions">
-        <l-circle
-          v-for="(city, index) in cities"
-          :key="index"
-          v-bind="markerOptions"
-          :lat-lng="city.lang"
-          :color="getMarkerColor(city.inquiries)"
-          @click="viewDetails(city.name)"
-        >
-          <l-tooltip :options="{ permanent: true, direction: 'center' }">
-            {{ city.inquiries ?? "?" }}
-          </l-tooltip>
-        </l-circle>
+        <div v-for="(city, index) in cities" :key="index">
+          <l-circle
+            v-bind="markerOptions"
+            :lat-lng="city.lang"
+            :color="getMarkerColor(city.inquiries)"
+            @click="viewDetails(city.name)"
+          >
+            <l-popup>
+              <v-card flat>
+                <v-card-title>{{ city.name }}</v-card-title>
+                <v-card-text>
+                  {{ city.description || "Lorem Ipsum" }}
+                </v-card-text>
+                <v-card-actions>
+                  <v-btn>Щось зробити</v-btn>
+                </v-card-actions>
+              </v-card>
+            </l-popup>
+            <l-tooltip :options="{ permanent: true, direction: 'center' }">
+              {{ city.inquiries ?? "?" }}
+            </l-tooltip>
+          </l-circle>
+        </div>
       </v-marker-cluster>
     </l-map>
   </div>
@@ -149,6 +160,7 @@ export default {
       return amount > 1 ? "red" : "yellow";
     },
     viewDetails(city) {
+      this.dialog = true;
       console.log("emit sidebar");
       console.log(`show ${city} details`);
     },
@@ -177,7 +189,7 @@ export default {
 
 .content-wrapper {
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
 }
 
 .leaflet-tooltip {
