@@ -1,6 +1,6 @@
 <template>
   <div class="content-wrapper">
-    <l-map v-bind="mapOptions">
+    <l-map v-bind="mapOptions" @update:zoom="zoomUpdated">
       <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <v-marker-cluster :options="markerClusterOptions">
         <l-circle
@@ -40,6 +40,7 @@ export default {
       },
       markerClusterOptions: {
         maxClusterRadius: 160,
+        chunkedLoading: true,
       },
       cities: [
         {
@@ -150,6 +151,15 @@ export default {
     viewDetails(city) {
       console.log("emit sidebar");
       console.log(`show ${city} details`);
+    },
+    zoomUpdated(zoom) {
+      if (zoom >= 8 && zoom < 11) {
+        this.markerOptions.weight = 75;
+      } else if (zoom < 8) {
+        this.markerOptions.weight = 40;
+      } else {
+        this.markerOptions.weight = 100;
+      }
     },
   },
 };
