@@ -1,5 +1,5 @@
 <template>
-  <div class="content-wrapper pt-8">
+  <div class="content-wrapper">
     <l-map v-bind="mapOptions" @update:zoom="zoomUpdated">
       <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <v-marker-cluster :options="markerClusterOptions">
