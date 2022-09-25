@@ -3,28 +3,10 @@
     <l-map v-bind="mapOptions" @update:zoom="zoomUpdated">
       <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <v-marker-cluster :options="markerClusterOptions">
-        <div v-for="(city, index) in cities" :key="index">
-          <l-circle
-            v-bind="markerOptions"
-            :lat-lng="city.lang"
-            :color="getMarkerColor(city.inquiries)"
-            @click="viewDetails(city.name)"
-          >
-            <l-popup>
-              <v-card flat>
-                <v-card-title>{{ city.name }}</v-card-title>
-                <v-card-text>
-                  {{ city.description || "Lorem Ipsum" }}
-                </v-card-text>
-                <v-card-actions>
-                  <v-btn>Щось зробити</v-btn>
-                </v-card-actions>
-              </v-card>
-            </l-popup>
-            <l-tooltip :options="{ permanent: true, direction: 'center' }">
-              {{ city.inquiries ?? "?" }}
-            </l-tooltip>
-          </l-circle>
+        <div v-for="(marker, index) in markers" :key="index">
+          <map-marker
+            :marker="marker"
+          />
         </div>
       </v-marker-cluster>
     </l-map>
@@ -32,10 +14,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Vue2LeafletMarkerCluster from "vue2-leaflet-markercluster";
+import MapMarker from '~/components/MapMarker'
 export default {
   components: {
     "v-marker-cluster": Vue2LeafletMarkerCluster,
+    MapMarker
   },
   data() {
     return {
@@ -53,7 +38,7 @@ export default {
         maxClusterRadius: 160,
         chunkedLoading: true,
       },
-      cities: [
+      testCities: [
         {
           name: "Kyiv",
           lang: [50.4501, 30.5234],
@@ -154,15 +139,13 @@ export default {
       ],
     };
   },
+  computed: {
+    ...mapState(['cities', 'markers'])
+  },
   methods: {
     getMarkerColor(amount) {
       if (amount === 0) return "gray";
       return amount > 1 ? "red" : "yellow";
-    },
-    viewDetails(city) {
-      this.dialog = true;
-      console.log("emit sidebar");
-      console.log(`show ${city} details`);
     },
     zoomUpdated(zoom) {
       if (zoom >= 8 && zoom < 11) {
