@@ -86,9 +86,9 @@ export default {
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: 'mdi-plus-circle',
+          title: 'Add Marker',
+          to: '/addmarker'
         }
       ],
       miniVariant: false,

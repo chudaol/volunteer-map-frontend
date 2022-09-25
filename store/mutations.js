@@ -4,6 +4,7 @@ import markerStatus from '~/enums/markerStatus'
 export const ADD_MARKER = 'ADD_MARKER'
 export const CHANGE_MARKER_STATUS = 'CHANGE_MARKER_STATUS'
 export const DELETE_MARKER = 'DELETE_MARKER'
+export const SET_MAP_CENTER = 'SET_MAP_CENTER'
 export default {
   [ADD_MARKER] (state, marker = {}) {
     const id = uuidv4()
@@ -12,5 +13,8 @@ export default {
   [CHANGE_MARKER_STATUS] (state, { id, status }) {
     const marker = find(state.markers, {id})
     marker.status = status
+  },
+  [SET_MAP_CENTER] (state, center) {
+    state.mapCenter = center
   }
 }

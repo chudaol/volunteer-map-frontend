@@ -24,5 +24,8 @@ export default {
       "status": markerStatus.DONE,
       "id": '3'
     }
+  ],
+  mapCenter: [
+    50.4500, 30.5236
   ]
 }

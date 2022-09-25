@@ -24,11 +24,6 @@ export default {
   },
   data() {
     return {
-      mapOptions: {
-        center: [50.4501, 30.5234],
-        zoom: 11,
-        maxZoom: 12,
-      },
       markerOptions: {
         stroke: true,
         opacity: 0.6,
@@ -140,7 +135,14 @@ export default {
     };
   },
   computed: {
-    ...mapState(['cities', 'markers'])
+    ...mapState(['cities', 'markers', 'mapCenter']),
+    mapOptions () {
+      return {
+        center: this.mapCenter,
+        zoom: 11,
+        maxZoom: 12
+      }
+    }
   },
   methods: {
     getMarkerColor(amount) {
