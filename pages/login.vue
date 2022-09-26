@@ -7,7 +7,7 @@
       icon
       :ripple="false"
       class="nav-back-btn"
-      @click="to"
+      @click="goToBack"
     >
       <v-icon>mdi-arrow-left-circle-outline</v-icon>
     </v-btn>
@@ -34,9 +34,9 @@
                 class="login-row py-3 px-5 w-full bg-white rounded-lg"
                 v-model="form.password"
               />
-              <a href="#" class="login-row forgot-password-btn pl-[18px] link"
-                >Forgot password?</a
-              >
+              <a href="#" class="login-row forgot-password-btn pl-[18px] link">
+                Forgot password?
+              </a>
               <div class="login-row flex flex-col">
                 <a
                   href="#"
@@ -50,8 +50,9 @@
                     mb-[10px]
                     text-center
                   "
-                  >Sign in with Google</a
                 >
+                  Sign in with Google
+                </a>
                 <a
                   href="#"
                   class="
@@ -63,8 +64,9 @@
                     rounded-lg
                     text-center
                   "
-                  >Sign in with Facebook</a
                 >
+                  Sign in with Facebook
+                </a>
               </div>
               <p class="login-row text-center mb-0">
                 New to Map of Interaction?
@@ -91,9 +93,9 @@
                 class="login-row py-3 px-5 w-full bg-white rounded-lg"
                 v-model="form.password"
               />
-              <a href="#" class="login-row forgot-password-btn pl-[18px] link"
-                >Forgot password?</a
-              >
+              <a href="#" class="login-row forgot-password-btn pl-[18px] link">
+                Forgot password?
+              </a>
               <div class="login-row flex flex-col">
                 <a
                   href="#"
@@ -107,8 +109,9 @@
                     mb-[10px]
                     text-center
                   "
-                  >Sign in with Google</a
                 >
+                  Sign in with Google
+                </a>
                 <a
                   href="#"
                   class="
@@ -120,8 +123,9 @@
                     rounded-lg
                     text-center
                   "
-                  >Sign in with Facebook</a
                 >
+                  Sign in with Facebook
+                </a>
               </div>
               <p class="login-row text-center mb-0">
                 New to Map of Interaction?
@@ -129,8 +133,8 @@
               </p>
             </div>
             <button type="submit" class="submit-btn">вхiд</button>
-          </form></v-tab-item
-        >
+          </form>
+        </v-tab-item>
         <v-tab-item>
           <form class="login-form" @submit.prevent="submitHandler">
             <div class="login-form-content">
@@ -148,9 +152,9 @@
                 class="login-row py-3 px-5 w-full bg-white rounded-lg"
                 v-model="form.password"
               />
-              <a href="#" class="login-row forgot-password-btn pl-[18px] link"
-                >Forgot password?</a
-              >
+              <a href="#" class="login-row forgot-password-btn pl-[18px] link">
+                Forgot password?
+              </a>
               <div class="login-row flex flex-col">
                 <a
                   href="#"
@@ -164,8 +168,9 @@
                     mb-[10px]
                     text-center
                   "
-                  >Sign in with Google</a
                 >
+                  Sign in with Google
+                </a>
                 <a
                   href="#"
                   class="
@@ -177,8 +182,9 @@
                     rounded-lg
                     text-center
                   "
-                  >Sign in with Facebook</a
                 >
+                  Sign in with Facebook
+                </a>
               </div>
               <p class="login-row text-center mb-0">
                 New to Map of Interaction?
@@ -186,8 +192,8 @@
               </p>
             </div>
             <button type="submit" class="submit-btn">вхiд</button>
-          </form></v-tab-item
-        >
+          </form>
+        </v-tab-item>
       </v-tabs-items>
     </div>
   </div>
@@ -208,7 +214,7 @@ export default {
     };
   },
   methods: {
-    to() {
+    goToBack() {
       this.$router.go(-1);
     },
 
