@@ -55,7 +55,7 @@
 </template>
 <script>
   import { mapActions } from 'vuex'
-  import markerStatus from '~/enums/markerStatus'
+  import markerStatus, { statusColorMap } from '~/enums/markerStatus'
   export default {
     props: {
       marker: {
@@ -77,16 +77,7 @@
     },
     computed: {
       color () {
-        switch(this.marker.status) {
-          case markerStatus.TODO:
-            return 'red'
-          case markerStatus.INPROGRESS:
-            return 'yellow'
-          case markerStatus.DONE:
-            return 'green'
-          default:
-            return 'grey'
-        }
+        return statusColorMap[this.marker.status]
       }
     },
     methods: {
