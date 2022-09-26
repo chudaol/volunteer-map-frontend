@@ -4,7 +4,7 @@
       width="80%"
     >
       <v-card-title>
-        Search for the city and add marker
+        {{ $t('addMarker.addMarkerTitle') }}
       </v-card-title>
       <v-card-text>
         <v-form
@@ -16,14 +16,14 @@
             v-model="city"
             :items="cityNames"
             outlined
-            label="Find the city"
+            :label="$t('addMarker.findCityLabel')"
           />
           <v-text-field
             v-model="description"
             :counter="256"
             outlined
             hide-details
-            label="Description"
+            :label="$t('addMarker.descriptionLabel')"
           />
         </v-form>
       </v-card-text>
@@ -36,7 +36,7 @@
           color="primary"
           @click="onClickAdd"
         >
-          Add Marker
+          {{ $t('addMarker.addMarkerButton') }}
         </v-btn>
       </v-card-actions>
     </v-card>
