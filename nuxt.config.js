@@ -1,5 +1,5 @@
 import colors from "vuetify/es5/util/colors";
-
+import messages from "./messages"
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -38,7 +38,15 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["nuxt-leaflet"],
+  modules: ["nuxt-leaflet", "@nuxtjs/i18n"],
+  i18n: {
+    locales: ['en', 'uk'],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages
+    }
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
