@@ -88,6 +88,11 @@ export default {
           title: "Login",
           to: "/login",
         },
+        {
+          icon: "mdi-account-details",
+          title: "LP registration",
+          to: "/newLP",
+        },
       ],
       miniVariant: false,
       right: true,
