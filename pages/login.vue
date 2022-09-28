@@ -1,16 +1,5 @@
 <template>
   <div class="login-page">
-    <v-btn
-      rounded
-      fab
-      small
-      icon
-      :ripple="false"
-      class="nav-back-btn"
-      @click="goToBack"
-    >
-      <v-icon>mdi-arrow-left-circle-outline</v-icon>
-    </v-btn>
     <div class="login-form">
       <v-tabs v-model="currentTab">
         <v-tab :ripple="false" v-for="tab in tabs" :key="tab">{{ tab }}</v-tab>
@@ -214,10 +203,6 @@ export default {
     };
   },
   methods: {
-    goToBack() {
-      this.$router.go(-1);
-    },
-
     submitHandler() {
       console.log(this.form);
       // Connect api here
