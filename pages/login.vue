@@ -18,7 +18,11 @@ export default {
   components: { LoginForm, Tabs },
   data() {
     return {
-      tabs: ["Лок пред", "Волонтер", "Модератор"],
+      tabs: [
+        "userType.localAuthority",
+        "userType.volunteer",
+        "userType.moderator",
+      ],
     };
   },
   methods: {

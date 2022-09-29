@@ -1,7 +1,9 @@
 <template>
   <div class="tabs">
     <v-tabs v-model="currentTab">
-      <v-tab :ripple="false" v-for="tab in tabs" :key="tab">{{ tab }}</v-tab>
+      <v-tab :ripple="false" v-for="tab in tabs" :key="tab">{{
+        $t(`${tab}`)
+      }}</v-tab>
     </v-tabs>
 
     <v-tabs-items v-model="currentTab">

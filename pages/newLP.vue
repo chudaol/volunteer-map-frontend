@@ -18,7 +18,7 @@ export default {
   components: { Tabs, LPRegistrationForm },
   data() {
     return {
-      tabs: ["Лок пред", "Волонтер"],
+      tabs: ["userType.localAuthority", "userType.volunteer"],
     };
   },
   methods: {

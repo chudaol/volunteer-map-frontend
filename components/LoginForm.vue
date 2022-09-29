@@ -4,19 +4,19 @@
       <input
         type="email"
         required
-        placeholder="Email"
+        :placeholder="$t(`general.emailLabel`)"
         class="login-row py-3 px-5 w-full bg-white rounded-lg"
         v-model="form.email"
       />
       <input
         type="password"
         required
-        placeholder="Password"
+        :placeholder="$t(`general.passwordLabel`)"
         class="login-row py-3 px-5 w-full bg-white rounded-lg"
         v-model="form.password"
       />
       <a href="#" class="login-row forgot-password-btn pl-[18px] link">
-        Forgot password?
+        {{ $t("login.forgotPasswordButton") }}
       </a>
       <div class="login-row flex flex-col">
         <a
@@ -32,7 +32,7 @@
             text-center
           "
         >
-          Sign in with Google
+          {{ $t("login.googleAuthButton") }}
         </a>
         <a
           href="#"
@@ -46,15 +46,19 @@
             text-center
           "
         >
-          Sign in with Facebook
+          {{ $t("login.facebookAuthButton") }}
         </a>
       </div>
       <p class="login-row text-center mb-0">
-        New to Map of Interaction?
-        <a href="#" class="join-btn link">Join now</a>
+        {{ $t("login.newUser") }}
+        <a href="#" class="join-btn link">
+          {{ $t("login.joinNowButton") }}
+        </a>
       </p>
     </div>
-    <button type="submit" class="submit-btn">вхiд</button>
+    <button type="submit" class="submit-btn">
+      {{ $t("login.loginButton") }}
+    </button>
   </form>
 </template>
 

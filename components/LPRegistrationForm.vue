@@ -6,48 +6,50 @@
   >
     <v-text-field
       v-model="form.name"
-      label="ПІБ"
+      :label="$t(`lpRegistration.fullNameLabel`)"
       type="text"
       required
     ></v-text-field>
     <v-text-field
       v-model="form.position"
       type="text"
-      label="Ваша посада"
+      :label="$t(`lpRegistration.positionLabel`)"
       required
     ></v-text-field>
     <v-text-field
       v-model="form.organization"
       type="text"
-      label="Назва органу"
+      :label="$t(`lpRegistration.organizationLabel`)"
       required
     ></v-text-field>
     <v-text-field
       v-model="form.phoneTel"
-      label="Номер телефону"
+      :label="$t(`lpRegistration.telLabel`)"
       type="number"
       required
     ></v-text-field>
     <v-text-field
       v-model="form.email"
       type="email"
-      label="E-mail"
+      :label="$t(`general.emailLabel`)"
       required
     ></v-text-field>
     <v-text-field
       v-model="form.password"
       type="password"
-      label="Пароль"
+      :label="$t(`general.passwordLabel`)"
       required
     ></v-text-field>
     <v-select
       v-model="form.city"
       :items="items"
-      label="Location"
+      :label="$t(`lpRegistration.locationLabel`)"
       required
     ></v-select>
-    <v-btn elevation="2" type="submit">Зареєструватись</v-btn>
-    <h4>ваш акаунт буде перевірено та надіслано вам сповіщення</h4>
+    <v-btn elevation="2" type="submit">{{
+      $t(`lpRegistration.registerButton`)
+    }}</v-btn>
+    <h4>{{ $t(`lpRegistration.reviewText`) }}</h4>
   </v-form>
 </template>
 
@@ -64,7 +66,7 @@ export default {
       password: "",
       city: null,
     },
-    items: Array(10).fill("Київська область, Село Бузове"),
+    items: Array(10).fill("village Buzova, Kyiv Oblast"),
   }),
   methods: {
     submitHandler() {
