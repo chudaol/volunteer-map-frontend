@@ -11,18 +11,14 @@
 </template>
 
 <script>
-import LoginForm from "../components/LoginForm.vue";
-import Tabs from "../components/Tabs.vue";
+import LoginForm from '../components/LoginForm.vue';
+import Tabs from '../components/Tabs.vue';
 export default {
-  name: "Login",
+  name: 'Login',
   components: { LoginForm, Tabs },
   data() {
     return {
-      tabs: [
-        "userType.localAuthority",
-        "userType.volunteer",
-        "userType.moderator",
-      ],
+      tabs: ['userType.localAuthority', 'userType.volunteer', 'userType.moderator'],
     };
   },
   methods: {

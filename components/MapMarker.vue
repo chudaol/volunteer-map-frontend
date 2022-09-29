@@ -1,18 +1,10 @@
 <template>
-  <l-circle
-    v-bind="markerOptions"
-    :lat-lng="[marker.lat, marker.lng]"
-    :color="color"
-  >
+  <l-circle v-bind="markerOptions" :lat-lng="[marker.lat, marker.lng]" :color="color">
     <l-popup>
-      <v-card
-        flat
-        light
-        class="ma-0 pa-0"
-      >
+      <v-card flat light class="ma-0 pa-0">
         <v-card-title>{{ marker.city }}</v-card-title>
         <v-card-text>
-          {{ marker.description || "Lorem Ipsum" }}
+          {{ marker.description || 'Lorem Ipsum' }}
         </v-card-text>
         <v-card-actions>
           <v-btn
@@ -21,8 +13,7 @@
             class="text-none"
             elevation="0"
             color="warning"
-            @click="onClickInProgress"
-          >
+            @click="onClickInProgress">
             Взято в роботу
           </v-btn>
           <v-btn
@@ -31,8 +22,7 @@
             class="text-none"
             elevation="0"
             color="success"
-            @click="onClickDone"
-          >
+            @click="onClickDone">
             Зроблено!
           </v-btn>
           <v-btn
@@ -41,56 +31,55 @@
             class="text-none"
             elevation="0"
             color="error"
-            @click="onClickTodo"
-          >
+            @click="onClickTodo">
             Зробити
           </v-btn>
         </v-card-actions>
       </v-card>
     </l-popup>
-<!--    <l-tooltip :options="{ permanent: true, direction: 'center' }">-->
-<!--      {{ city.inquiries ?? "?" }}-->
-<!--    </l-tooltip>-->
+    <!--    <l-tooltip :options="{ permanent: true, direction: 'center' }">-->
+    <!--      {{ city.inquiries ?? "?" }}-->
+    <!--    </l-tooltip>-->
   </l-circle>
 </template>
 <script>
-  import { mapActions } from 'vuex'
-  import markerStatus, { statusColorMap } from '~/enums/markerStatus'
-  export default {
-    props: {
-      marker: {
-        type: Object,
-        default () {
-          return {}
-        }
-      }
-    },
-    data () {
-      return {
-        markerOptions: {
-          stroke: true,
-          opacity: 0.6,
-          weight: 100,
-        },
-        markerStatus
-      }
-    },
-    computed: {
-      color () {
-        return statusColorMap[this.marker.status]
-      }
-    },
-    methods: {
-      ...mapActions(['setMarkerDone', 'setMarkerTodo', 'setMarkerInProgress']),
-      onClickTodo () {
-        this.setMarkerTodo(this.marker)
+import { mapActions } from 'vuex';
+import markerStatus, { statusColorMap } from '~/enums/markerStatus';
+export default {
+  props: {
+    marker: {
+      type: Object,
+      default() {
+        return {};
       },
-      onClickInProgress () {
-        this.setMarkerInProgress(this.marker)
+    },
+  },
+  data() {
+    return {
+      markerOptions: {
+        stroke: true,
+        opacity: 0.6,
+        weight: 100,
       },
-      onClickDone () {
-        this.setMarkerDone(this.marker)
-      }
-    }
-  }
+      markerStatus,
+    };
+  },
+  computed: {
+    color() {
+      return statusColorMap[this.marker.status];
+    },
+  },
+  methods: {
+    ...mapActions(['setMarkerDone', 'setMarkerTodo', 'setMarkerInProgress']),
+    onClickTodo() {
+      this.setMarkerTodo(this.marker);
+    },
+    onClickInProgress() {
+      this.setMarkerInProgress(this.marker);
+    },
+    onClickDone() {
+      this.setMarkerDone(this.marker);
+    },
+  },
+};
 </script>

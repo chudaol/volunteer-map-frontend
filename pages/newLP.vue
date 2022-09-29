@@ -11,14 +11,14 @@
 </template>
 
 <script>
-import Tabs from "../components/Tabs.vue";
-import LPRegistrationForm from "../components/LPRegistrationForm.vue";
+import Tabs from '../components/Tabs.vue';
+import LPRegistrationForm from '../components/LPRegistrationForm.vue';
 export default {
-  name: "LPRegistration",
+  name: 'LPRegistration',
   components: { Tabs, LPRegistrationForm },
   data() {
     return {
-      tabs: ["userType.localAuthority"],
+      tabs: ['userType.localAuthority'],
     };
   },
   methods: {
