@@ -6,76 +6,51 @@
         required
         :placeholder="$t(`general.emailLabel`)"
         class="login-row py-3 px-5 w-full bg-white rounded-lg"
-        v-model="form.email"
-      />
+        v-model="form.email" />
       <input
         type="password"
         required
         :placeholder="$t(`general.passwordLabel`)"
         class="login-row py-3 px-5 w-full bg-white rounded-lg"
-        v-model="form.password"
-      />
+        v-model="form.password" />
       <a href="#" class="login-row forgot-password-btn pl-[18px] link">
-        {{ $t("login.forgotPasswordButton") }}
+        {{ $t('login.forgotPasswordButton') }}
       </a>
       <div class="login-row flex flex-col">
-        <a
-          href="#"
-          class="
-            external-auth-btn
-            py-3
-            px-5
-            w-full
-            bg-white
-            rounded-lg
-            mb-[10px]
-            text-center
-          "
-        >
-          {{ $t("login.googleAuthButton") }}
+        <a href="#" class="external-auth-btn py-3 px-5 w-full bg-white rounded-lg mb-[10px] text-center">
+          {{ $t('login.googleAuthButton') }}
         </a>
-        <a
-          href="#"
-          class="
-            external-auth-btn
-            py-3
-            px-5
-            w-full
-            bg-white
-            rounded-lg
-            text-center
-          "
-        >
-          {{ $t("login.facebookAuthButton") }}
+        <a href="#" class="external-auth-btn py-3 px-5 w-full bg-white rounded-lg text-center">
+          {{ $t('login.facebookAuthButton') }}
         </a>
       </div>
       <p class="login-row text-center mb-0">
-        {{ $t("login.newUser") }}
+        {{ $t('login.newUser') }}
         <a href="#" class="join-btn link">
-          {{ $t("login.joinNowButton") }}
+          {{ $t('login.joinNowButton') }}
         </a>
       </p>
     </div>
     <button type="submit" class="submit-btn">
-      {{ $t("login.loginButton") }}
+      {{ $t('login.loginButton') }}
     </button>
   </form>
 </template>
 
 <script>
 export default {
-  name: "LoginForm",
+  name: 'LoginForm',
   data() {
     return {
       form: {
-        email: "",
-        password: "",
+        email: '',
+        password: '',
       },
     };
   },
   methods: {
     submitHandler() {
-      this.$emit("submit", this.form);
+      this.$emit('submit', this.form);
       // emit submit here
     },
   },
@@ -120,4 +95,3 @@ export default {
   color: #525252;
 }
 </style>
-	
