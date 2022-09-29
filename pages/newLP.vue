@@ -1,9 +1,9 @@
 <template>
-  <div class="login-page">
-    <div class="login-page-content">
+  <div class="new-lp-page">
+    <div class="new-lp-page-content">
       <Tabs :tabs="tabs">
         <template v-for="tab in tabs" #[tab]>
-          <LoginForm :key="tab" @submit="submitHandler" />
+          <LPRegistrationForm :key="tab" @submit="submitHandler" />
         </template>
       </Tabs>
     </div>
@@ -11,18 +11,14 @@
 </template>
 
 <script>
-import LoginForm from "../components/LoginForm.vue";
 import Tabs from "../components/Tabs.vue";
+import LPRegistrationForm from "../components/LPRegistrationForm.vue";
 export default {
-  name: "Login",
-  components: { LoginForm, Tabs },
+  name: "LPRegistration",
+  components: { Tabs, LPRegistrationForm },
   data() {
     return {
-      tabs: [
-        "userType.localAuthority",
-        "userType.volunteer",
-        "userType.moderator",
-      ],
+      tabs: ["userType.localAuthority"],
     };
   },
   methods: {
@@ -35,8 +31,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.login-page-content {
-  max-width: 468px;
+.new-lp-page-content {
+  max-width: 800px;
   margin: 0 auto;
 }
 </style>

@@ -34,6 +34,17 @@
     </v-app-bar>
     <v-main>
       <v-container>
+        <v-btn
+          rounded
+          fab
+          small
+          icon
+          :ripple="false"
+          class="nav-back-btn"
+          @click="goToBack"
+        >
+          <v-icon>mdi-arrow-left-circle-outline</v-icon>
+        </v-btn>
         <Nuxt />
       </v-container>
     </v-main>
@@ -77,6 +88,11 @@ export default {
           title: "Login",
           to: "/login",
         },
+        {
+          icon: "mdi-account-details",
+          title: "LP registration",
+          to: "/newLP",
+        },
       ],
       miniVariant: false,
       right: true,
@@ -84,5 +100,16 @@ export default {
       title: "Volunteer Map",
     };
   },
+  methods: {
+    goToBack() {
+      this.$router.go(-1);
+    },
+  },
 };
 </script>
+
+<style scoped>
+.nav-back-btn {
+  color: #c1b0c9 !important;
+}
+</style>
