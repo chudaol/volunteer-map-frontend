@@ -25,7 +25,7 @@ export default {
     submitHandler(data) {
       console.log(data);
       // Connect api here
-      fetch('https://i-map.site/api/v1/accounts/register/', {
+      fetch('https://api.i-map.site/api/v1/accounts/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

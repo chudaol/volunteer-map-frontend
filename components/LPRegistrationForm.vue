@@ -32,6 +32,7 @@ export default {
       alPhone: null,
       alName: '',
       alAddress: null,
+      gender: 'other',
       user_type: 'local_authority',
     },
     items: Array(10).fill('village Buzova, Kyiv Oblast'),
