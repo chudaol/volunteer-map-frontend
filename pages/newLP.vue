@@ -25,15 +25,19 @@ export default {
     submitHandler(data) {
       console.log(data);
       // Connect api here
-      fetch('http://api.i-map.site/accounts/register/', {
+      fetch('https://i-map.site/api/v1/accounts/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-      }).then((res) => {
-        console.log(res);
-      });
+      })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((e) => {
+          console.error(e);
+        });
     },
   },
 };
