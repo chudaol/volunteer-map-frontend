@@ -22,9 +22,18 @@ export default {
     };
   },
   methods: {
-    submitHandler(e) {
-      console.log(e);
+    submitHandler(data) {
+      console.log(data);
       // Connect api here
+      fetch('http://api.i-map.site/accounts/register/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      }).then((res) => {
+        console.log(res);
+      });
     },
   },
 };

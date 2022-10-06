@@ -7,14 +7,14 @@
       :label="$t(`lpRegistration.positionLabel`)"
       required></v-text-field>
     <v-text-field
-      v-model="form.organization"
+      v-model="form.alName"
       type="text"
       :label="$t(`lpRegistration.organizationLabel`)"
       required></v-text-field>
-    <v-text-field v-model="form.phoneTel" :label="$t(`lpRegistration.telLabel`)" type="number" required></v-text-field>
+    <v-text-field v-model="form.alPhone" :label="$t(`lpRegistration.telLabel`)" type="number" required></v-text-field>
     <v-text-field v-model="form.email" type="email" :label="$t(`general.emailLabel`)" required></v-text-field>
     <v-text-field v-model="form.password" type="password" :label="$t(`general.passwordLabel`)" required></v-text-field>
-    <v-select v-model="form.city" :items="items" :label="$t(`lpRegistration.locationLabel`)" required></v-select>
+    <v-select v-model="form.alAddress" :items="items" :label="$t(`lpRegistration.locationLabel`)" required></v-select>
     <v-btn elevation="2" type="submit">{{ $t(`lpRegistration.registerButton`) }}</v-btn>
     <h4>{{ $t(`lpRegistration.reviewText`) }}</h4>
   </v-form>
@@ -25,19 +25,29 @@ export default {
   name: 'LPRegistrationForm',
   data: () => ({
     form: {
-      position: '',
-      organization: '',
       name: '',
-      phoneTel: null,
       email: '',
       password: '',
-      city: null,
+      position: '',
+      alPhone: null,
+      alName: '',
+      alAddress: null,
+      user_type: 'local_authority',
     },
     items: Array(10).fill('village Buzova, Kyiv Oblast'),
   }),
   methods: {
     submitHandler() {
-      this.$emit('submit', this.form);
+      const { name, password, ...otherFields } = this.form;
+      const [firstName, lastName, middleName] = name.split(' ');
+      this.$emit('submit', {
+        firstName,
+        lastName,
+        middleName,
+        password,
+        passwordConfirm: password,
+        ...otherFields,
+      });
       // emit submit here
     },
   },
